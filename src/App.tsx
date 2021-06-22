@@ -1,17 +1,16 @@
-import {Button} from './components/Button';
+import { Route, BrowserRouter } from 'react-router-dom';
 
-function App() {
+import { Home } from './pages/Home';
+import { NewRoom } from './pages/NewRoom';
+
+function App(): JSX.Element {
   return (
-    <div>
-      <Button text='Botão 1' />
-      <Button>
-      Clique aqui
-      </Button>
-      <Button />
-      <Button />
+    <BrowserRouter>
+      <Route path="/" exact component={Home} />
+      <Route path="/rooms/new" component={NewRoom} />
 
-    </div>
-  )
+    </BrowserRouter>
+  );
 }
 
 export default App;
