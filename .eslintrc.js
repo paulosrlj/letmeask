@@ -39,6 +39,7 @@ module.exports = {
     ],
     'react/button-has-type': 0,
     'react/jsx-props-no-spreading': 0,
+    'import/no-cycle': 0,
   },
   overrides: [
     {

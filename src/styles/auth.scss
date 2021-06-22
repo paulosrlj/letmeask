@@ -61,6 +61,10 @@
     }
 
     form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
       input {
         height: 50px;
         border-radius: 8px;
