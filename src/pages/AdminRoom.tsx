@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { useHistory, useParams } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
@@ -16,7 +17,7 @@ type RoomParams = {
   id: string;
 }
 
-export function AdminRoom() {
+export function AdminRoom(): JSX.Element {
   // const { user } = useAuth();
   const history = useHistory();
   const params = useParams<RoomParams>();

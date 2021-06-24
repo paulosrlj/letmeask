@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { useHistory } from 'react-router-dom';
 import { FormEvent, useState } from 'react';
 
@@ -12,7 +13,7 @@ import { useAuth } from '../hooks/useAuth';
 
 import '../styles/auth.scss';
 
-export function Home() {
+export function Home(): JSX.Element {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
   const [roomCode, setRoomCode] = useState('');

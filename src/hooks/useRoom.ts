@@ -29,7 +29,10 @@ type QuestionType = {
   likeId: string | undefined;
 }
 
-export function useRoom(roomId: string) {
+export function useRoom(roomId: string): {
+  questions: QuestionType[];
+  title: string;
+} {
   const { user } = useAuth();
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState('');

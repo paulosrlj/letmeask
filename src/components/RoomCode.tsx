@@ -7,7 +7,7 @@ type RoomCodeProps = {
   code: string;
 }
 
-export function RoomCode(props: RoomCodeProps) {
+export function RoomCode(props: RoomCodeProps): JSX.Element {
   function copyRoomCodeToClipboard() {
     navigator.clipboard.writeText(props.code);
   }
