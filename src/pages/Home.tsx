@@ -5,21 +5,22 @@ import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 
-// import { auth, firebase } from '../services/firebase';
-
-import '../styles/auth.scss';
+import { database } from '../services/firebase';
 
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
-import { database } from '../services/firebase';
 
-export function Home(): JSX.Element {
+import '../styles/auth.scss';
+
+export function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
   const [roomCode, setRoomCode] = useState('');
 
   async function handleCreateRoom() {
-    if (!user) await signInWithGoogle();
+    if (!user) {
+      await signInWithGoogle();
+    }
 
     history.push('/rooms/new');
   }
@@ -27,13 +28,19 @@ export function Home(): JSX.Element {
   async function handleJoinRoom(event: FormEvent) {
     event.preventDefault();
 
-    if (roomCode.trim() === '') return;
+    if (roomCode.trim() === '') {
+      return;
+    }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      // eslint-disable-next-line no-alert
-      alert('Room does not exists');
+      alert('Room does not exists.');
+      return;
+    }
+
+    if (roomRef.val().endedAt) {
+      alert('Room already closed.');
       return;
     }
 
@@ -50,11 +57,11 @@ export function Home(): JSX.Element {
       <main>
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
-          <button onClick={handleCreateRoom} className="create-room" type="button">
-            <img src={googleIconImg} alt="Logo da Google" />
+          <button onClick={handleCreateRoom} className="create-room">
+            <img src={googleIconImg} alt="Logo do Google" />
             Crie sua sala com o Google
           </button>
-          <div className="separator">ou entre em um sala</div>
+          <div className="separator">ou entre em uma sala</div>
           <form onSubmit={handleJoinRoom}>
             <input
               type="text"
@@ -62,7 +69,9 @@ export function Home(): JSX.Element {
               onChange={(event) => setRoomCode(event.target.value)}
               value={roomCode}
             />
-            <Button type="submit">Entrar na sala</Button>
+            <Button type="submit">
+              Entrar na sala
+            </Button>
           </form>
         </div>
       </main>

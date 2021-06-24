@@ -1,37 +1,35 @@
 import { FormEvent, useState } from 'react';
-
 import { Link, useHistory } from 'react-router-dom';
+
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
-// import googleIconImg from '../assets/images/google-icon.svg';
-
-import '../styles/auth.scss';
 
 import { Button } from '../components/Button';
 import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth';
 
-export function NewRoom(): JSX.Element {
-  const history = useHistory();
+import '../styles/auth.scss';
 
+export function NewRoom() {
   const { user } = useAuth();
-
+  const history = useHistory();
   const [newRoom, setNewRoom] = useState('');
 
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
 
-    if (newRoom.trim() === '') return;
+    if (newRoom.trim() === '') {
+      return;
+    }
 
     const roomRef = database.ref('rooms');
 
-    // eslint-disable-next-line no-unused-vars
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
     });
 
-    history.push(`rooms/${firebaseRoom.key}`);
+    history.push(`/rooms/${firebaseRoom.key}`);
   }
 
   return (
@@ -52,7 +50,9 @@ export function NewRoom(): JSX.Element {
               onChange={(event) => setNewRoom(event.target.value)}
               value={newRoom}
             />
-            <Button type="submit">Criar sala</Button>
+            <Button type="submit">
+              Criar sala
+            </Button>
           </form>
           <p>
             Quer entrar em uma sala existente?
