@@ -1,11 +1,14 @@
+/* eslint-disable react/require-default-props */
 import { ButtonHTMLAttributes } from 'react';
 
 import '../styles/button.scss';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  isOutlined?: boolean;
+};
 
-export function Button(props:ButtonProps): JSX.Element {
+export function Button({ isOutlined = false, ...props }:ButtonProps): JSX.Element {
   return (
-    <button className="button" {...props} />
+    <button className={`button ${isOutlined ? 'outlined' : ''}`} {...props} />
   );
 }
