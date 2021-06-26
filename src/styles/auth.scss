@@ -6,8 +6,8 @@
   aside {
     flex: 7;
 
-    background: #835afd;
-    color: #fff;
+    background: linear-gradient(90deg, rgba(30, 100, 94, 0.733) 0%, rgb(76, 180, 116) 35%);
+    color: #f5e4e4;
 
     display: flex;
     flex-direction: column;
@@ -29,7 +29,7 @@
       font-size: 24px;
       line-height: 32px;
       margin-top: 16px;
-      color: #f8f8f8;
+      color: #f5e4e4;
     }
   }
 
@@ -86,7 +86,7 @@
       margin-top: 16px;
 
       a {
-        color: #e559f9;
+        color: rgb(35, 206, 100);
       }
     }
   }

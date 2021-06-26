@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
 
@@ -22,7 +22,15 @@ export function Room(): JSX.Element {
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
 
+  const history = useHistory();
+
   const { title, questions } = useRoom(roomId);
+
+  function handleExitRoom(event: FormEvent) {
+    event.preventDefault();
+
+    history.push('/');
+  }
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -65,7 +73,10 @@ export function Room(): JSX.Element {
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
-          <RoomCode code={roomId} />
+          <div>
+            <RoomCode code={roomId} />
+            <Button isOutlined onClick={handleExitRoom}>Sair</Button>
+          </div>
         </div>
       </header>
 
@@ -116,6 +127,8 @@ export function Room(): JSX.Element {
               key={question.id}
               content={question.content}
               author={question.author}
+              isAnswered={question.isAnswered}
+              isHighlighted={question.isHighlighted}
             >
               <button
                 className={`like-button ${question.likeId ? 'liked' : ''}`}

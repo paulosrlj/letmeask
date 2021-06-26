@@ -3,9 +3,31 @@
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
+  margin: 24px 0;
+
+  cursor: pointer;
+
+  transition: transform 0.5s ease-in-out;
 
   & + .question {
     margin-top: 8px;
+  }
+
+  &.highlighted {
+    background: #f4f0ff;
+    border: 1px solid rgba(19, 211, 92, 0.822);
+
+    footer .user-info span {
+      color: #29292e;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &.answered {
+    background: #dbdcdd;
   }
 
   p {
@@ -35,6 +57,11 @@
       }
     }
 
+    > div {
+      display: flex;
+      gap: 16px;
+    }
+
     button {
       border: 0;
       background: transparent;
@@ -48,10 +75,10 @@
         gap: 8px;
 
         &.liked {
-          color: #835afd;
+          color: rgba(19, 211, 92, 0.822);
 
           svg path {
-            stroke: #835afd;
+            stroke: rgba(19, 211, 92, 0.822);
           }
         }
       }

@@ -2,7 +2,7 @@
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
+  background: linear-gradient(90deg, rgba(17, 153, 142, 0.733) 0%, rgba(56,239,125,1) 35%);
   color: #fff;
   padding: 0 32px;
 
@@ -21,8 +21,8 @@
 
   &.outlined {
     background: #fff;
-    border: 1px solid #835afd;
-    color: #835afd;
+    border: 1px solid rgba(19, 211, 92, 0.822);
+    color: rgba(38, 179, 92, 0.904);
   }
 
   &:not(:disabled):hover {

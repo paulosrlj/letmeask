@@ -1,6 +1,8 @@
 /* eslint-disable no-alert */
 import { useHistory } from 'react-router-dom';
 import { FormEvent, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
@@ -36,12 +38,12 @@ export function Home(): JSX.Element {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert('Room does not exists.');
+      toast.error('The room does not exists.');
       return;
     }
 
     if (roomRef.val().endedAt) {
-      alert('Room already closed.');
+      toast.error('Room already closed');
       return;
     }
 
@@ -50,6 +52,7 @@ export function Home(): JSX.Element {
 
   return (
     <div id="page-auth">
+      <ToastContainer position="top-center" closeOnClick autoClose={2000} closeButton={false} />
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
