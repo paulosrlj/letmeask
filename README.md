@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="https://raw.githubusercontent.com/paulosrlj/letmeask/2399ff5560103b5015f46a74c3dd92b5f002c6b0/src/assets/images/logo.svg">
+  <img width="460" height="300" src="./src/assets/images/logo.svg">
 </p> <br/>
 
 <p align="center">
@@ -17,11 +17,11 @@ O letmeask surgiu com a proposta de unir devs em salas interativas de Q&A (Quest
 
 ## :milky_way: Screenshots
 
-![App Screenshot](https://i.ibb.co/WtP52hd/Captura-de-tela-de-2021-06-25-11-18-51.png)
-![App Screenshot](https://i.ibb.co/4KXBjPt/Captura-de-tela-de-2021-06-25-11-19-15.png)
-![App Screenshot](https://i.ibb.co/R0BbfcL/Captura-de-tela-de-2021-06-25-11-20-10.png)
-![App Screenshot](https://i.ibb.co/ZWz7L0Y/Captura-de-tela-de-2021-06-25-11-20-40.png)
-
+![App Screenshot](https://i.ibb.co/WtTzyvs/01.png)
+![App Screenshot](https://i.ibb.co/xscQn4W/02.png)
+![App Screenshot](https://i.ibb.co/D4HWHGC/03.png)
+![App Screenshot](https://i.ibb.co/3k8yFvn/05.png)
+![App Screenshot](https://i.ibb.co/CJf4WjV/06.png)
 
 # :space_invader: Techs
 
